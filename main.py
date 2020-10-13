@@ -12,6 +12,7 @@ def lines_printed_backwards(lines_list):
         line_number = lines_list.index(string) + 1 # assigned a varible the index of the string containing the line
         print(line_number, string)
 
+# Prints the list of lines in random order
 def lines_printed_random(lines_list):
     for i in range(len(lines_list)):
         random_index = random.randint(0, len(lines_list))
@@ -23,13 +24,15 @@ def lines_printed_random(lines_list):
 #         print(string)
 
 
-# def lines_printed_custom(lines_list):
-#     pass
+def lines_printed_custom(lines_list):
+    new_list = sorted(lines_list, key=len)
+    for lines in new_list:
+        print(lines)
 
 def main():
     lines_printed_backwards(get_file_lines('poem.txt'))
     lines_printed_random(get_file_lines('poem.txt'))
-    # lines_printed_custom(get_file_lines('poem.txt'))
+    lines_printed_custom(get_file_lines('poem.txt'))
 
 if __name__ == "__main__":
     main()
